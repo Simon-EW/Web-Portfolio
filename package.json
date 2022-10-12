@@ -1,0 +1,16 @@
+{
+  "name": "web-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite dev --host",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^3.1.7",
+    "vite-plugin-mpa": "^1.1.4"
+  }
+}

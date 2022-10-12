@@ -1,0 +1,10 @@
+{
+    "title": "My first web project",
+    "description": "This was my very first web projects and admittedly it's not all that exiting",
+    "entry": "index.html",
+    "tags": [
+        "Html",
+        "Css",
+        "JavaScript"
+    ]
+}
