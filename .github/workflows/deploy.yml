@@ -43,14 +43,10 @@ jobs:
         run: pnpm i
       - name: Run buildscript
         run: pnpm run build
-      - name: Delete node modules folder
-        run: rm -rf node_modules
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: .
-            
-          
+          path: dist
 
   # Deployment job
   deploy:

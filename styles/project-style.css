@@ -46,3 +46,9 @@ main {
     margin: 1rem 1rem;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .project-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
