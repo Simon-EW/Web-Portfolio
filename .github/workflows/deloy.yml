@@ -37,6 +37,8 @@ jobs:
         with:
           node-version: "16"
           cache: "pnpm"
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
       - name: Install dependencies
         run: pnpm i
       - name: Run buildscript
