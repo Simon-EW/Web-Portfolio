@@ -1,68 +1,106 @@
-interface project {
+// Typescipt type definitions
+
+// Type for each project in projects.json
+interface jsonProject {
+  id: string;
   title: string;
   description: string;
   entry: string;
+  github: string;
   tags: string[];
 }
 
-const getProject = (dir: string) => {
-  const data: Promise<project> = fetch(`/projects/${dir}/project.json`).then(
-    (res) => res.json()
-  );
-  return data;
-};
+// Type for projects.json
+interface projectsJson {
+  projects: jsonProject[];
+  featured: string[];
+}
 
-const createElement = (
+// Global variable which holds the div where all projects will be added
+const projectList = document.querySelector(".project-list");
+
+/**
+ *
+ * @param tag The type of element to create
+ * @param parent The parent element to append the new element to
+ * @param classNames An array of class names to add to the new element
+ * @returns The newly created element
+ * @description Creates a new element and appends it to the parent element
+ */
+const appendElement = (
   tag: string,
   parent: Element,
-  className: string,
-  text?: string
+  text: string,
+  ...classNames: string[]
 ) => {
   const element = document.createElement(tag);
   parent.appendChild(element);
-  element.setAttribute("class", className);
-  if (text) {
-    element.innerText = text;
-  }
+  // Sets the text of the element if text is provided
+  if (text) element.textContent = text;
+  // Adds all the classes to the element if any were provided
+  if (classNames) element.classList.add(...classNames);
   return element;
 };
 
-const addProjectToDOM = (project: project) => {
-  const { title, description, entry, tags } = project;
-  const projectList = document.querySelector(".project-list");
+/**
+ *
+ * @param project The project to add to the DOM
+ * @returns {void}
+ * @description Adds a project to the DOM in the div with the class "project-list"
+ */
+const addProjectToDOM = (project: jsonProject) => {
+  // Object destructuring to get all the properties of the project
+  const { title, description, entry, tags, github } = project;
+  // Check if projectList exists otherwise return
   if (!projectList) return console.log("No div with class project-list found");
 
-  const parentNode = createElement("a", projectList, "project");
+  const parentNode = appendElement("a", projectList, "", "project");
+
+  // Add the href attribute to the project element which links to
+  // the project entry point meaning the entire "card" is clickable
   parentNode.setAttribute("href", `/projects/${entry}`);
 
-  parentNode.innerHTML = `
+  appendElement("h2", parentNode, title, "project-title");
+
+  // Create a div to hold project tags and then loop through the tags
+  // and add them to the container
+  const tagContainer = appendElement("div", parentNode, "", "tag-container");
+  tags.forEach((tag) =>
+    appendElement("span", tagContainer, tag, "project-tag")
+  );
+  const githubLink = appendElement("a", parentNode, "", "project-link");
+  githubLink.setAttribute("href", github);
+  const githubLogo = appendElement("img", githubLink, "", "project-github");
+  githubLogo.setAttribute("src", "/images/project-github.svg");
+  appendElement("p", parentNode, description, "project-description");
+
+  /* 
+    The above code creates a html structure like this:
     <h2 class="project-title">${title}</h2>
     <div class="tag-container">
-      ${tags.map((tag) => `<span class="project-tag">${tag}</span>`).join("")}
+      <span class="project-tag">${tag}</span>
+      <span class="project-tag">${tag}</span>
     </div>
     <p class="project-description">${description}</p>
-  `;
+  */
 };
 
-const addProjects = async () => {
-  const projectJson = await fetch("/projects/projects.json").then((res) =>
-    res.json()
+const addProjects = async (featuredOnly: boolean) => {
+  const projectJson: projectsJson = await fetch("/projects/projects.json").then(
+    (res) => res.json()
   );
 
-  let projects: string[];
-  if (window.location.pathname.includes("pages")) {
-    projects = projectJson.projects;
+  let projects: jsonProject[];
+
+  if (featuredOnly) {
+    projects = projectJson.projects.filter((project: jsonProject) =>
+      projectJson.featured.includes(project.id)
+    );
   } else {
-    projects = projectJson.featuredProjects;
+    projects = projectJson.projects;
   }
 
-  projects.forEach(async (project) => {
-    const data = await getProject(project);
-    data.entry = project + "/" + data.entry;
-
-    addProjectToDOM(data);
-  });
-  console.log(projects);
+  projects.forEach((project) => addProjectToDOM(project));
 };
 
-addProjects();
+export default addProjects;

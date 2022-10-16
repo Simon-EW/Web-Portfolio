@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: rgba(0, 42, 84, 1);
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+main {
+  margin: 4rem 4rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 1rem;
+  justify-content: end;
+  align-items: center;
+  background-color: rgb(0, 122, 245);
+}
+
+.nav-list a {
+  color: rgb(0, 42, 84);
+  font-weight: 700;
+  font-size: 1.6rem;
+  padding: 0 0.5rem;
+  margin: 0 0.5rem;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-list img {
+  height: 2rem;
+  width: 2rem;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 
+  #mobile-nav is a checkbox only to keep keep track if the menu should be shown or not
+  while in mobile view.
+  It is not visible on the page.
+  */
+#mobile-nav {
+  display: none;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+/* 
+  Media query to set the margin for the main content on the page to be less
+  when the screen is smaller than 768px to make more content fit on narrower
+  screen sizes.
+*/
+@media screen and (max-width: 768px) {
+  main {
+    margin: 1rem 1rem;
+  }
+}
+
+/* 
+  Media query to handle the mobile menu.
+  When the screen is smaller than 768px the menu will be hidden by default.
+  When the menu is toggled the menu will be shown.
+*/
+@media screen and (max-width: 768px) {
+  header {
+    position: fixed;
+  }
+  nav {
+    width: 100vw;
+  }
+  main {
+    padding-top: 2rem;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    position: fixed;
+    cursor: pointer;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .nav-list {
+    transition: all ease 0.3s;
+    transform: scale(0);
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    right: 0;
+    top: 3rem;
+    border-radius: 0.5rem;
+  }
+
+  .burger {
+    position: relative;
+    display: block;
+    height: 1rem;
+  }
+
+  .bar {
+    display: block;
+    position: relative;
+    width: 2rem;
+    height: 3px;
+    border-radius: 1rem;
+    background-color: rgb(217, 217, 217);
+    /* 
+      This transition is the one used when going from clicked to unclicked since
+      the bars have another transition property while clicked.
+      This will make the rotation happen first and then moving them apart.
+    */
+    transition: transform 0.2s ease, top 0.2s ease 0.2s;
+  }
+
+  /* These make the top and bottom bars move up and down since they start of stacked */
+  .bar:nth-child(1) {
+    top: -0.44rem;
+  }
+
+  .bar:nth-child(3) {
+    top: 0.44rem;
+  }
+
+  /* 
+    Makes the mobile menu visible using the ~ selector which selects all children of
+    the type .nav-list that are siblings of the element with the id #mobile-nav.
+  */
+  #mobile-nav:checked ~ .nav-list {
+    transform: scale(1);
+  }
+
+  /* 
+    This transition is the one used when going from unclicked to clicked since
+    the bars get this transition property as soon as their clicked.
+    This will make the bars move together first and then rotate them.
+  */
+  #mobile-nav:checked ~ .mobile-nav-toggle .bar {
+    transition: transform 0.2s ease 0.2s, top 0.2s ease;
+  }
+
+  /* This moves the top bar into the middle and rotates it */
+  #mobile-nav:checked ~ .mobile-nav-toggle .bar:nth-child(1) {
+    transform: rotate(45deg);
+    top: 3px;
+  }
+
+  /* This rotates the middle bar along with the top bar */
+  #mobile-nav:checked ~ .mobile-nav-toggle .bar:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  /* This moves the bottom bar into the middle and rotates it */
+  #mobile-nav:checked ~ .mobile-nav-toggle .bar:nth-child(3) {
+    top: -3px;
+    transform: rotate(-45deg);
+  }
+}

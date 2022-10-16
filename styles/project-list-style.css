@@ -1,0 +1,62 @@
+.project-list {
+  display: grid;
+  /* 
+    Grid template to handle amount of columns automatically
+    based on the size of the sceen.
+    This is handled by auto-fit and minmax.
+    auto-fit will create as many columns as possible
+    and minmax will set the minimum width of the columns.
+    This is later overriden by a media query to make sure on bigger screens
+    you don't have a lot of these on the same row but we instead let them stretch out.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+}
+
+.project {
+  background-color: rgb(0, 48, 97);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 1.5rem;
+}
+
+.project-title {
+  font-weight: 700;
+  color: rgb(51, 153, 255);
+  padding: 1rem;
+}
+
+.tag-container {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 1rem;
+}
+
+.project-tag {
+  padding: 0 0.75rem;
+  border-radius: 5rem;
+  /* ¨
+    Diffenerent shades for border and text to make sure the text
+    has good contrast while the slightly darker border makes the
+    tag not stand out as much.
+  */
+  border: solid 2px rgb(161, 101, 0);
+  color: rgb(219, 137, 0);
+}
+
+.project-description {
+  padding: 1rem;
+  color: rgb(51, 153, 255);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.project-link {
+  /* Float right to make it go next to the description instead of being above it */
+  float: right;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5rem;
+}

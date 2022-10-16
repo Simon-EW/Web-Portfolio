@@ -1,0 +1,35 @@
+body {
+  background-color: rgb(0, 42, 84);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  height: 100vh;
+  margin: 0;
+}
+
+.hotdog {
+  width: 20%;
+  transition: transform 0.7s cubic-bezier(1, -0.26, 0.32, 0.89);
+}
+
+.box {
+  width: 20%;
+  /* 
+    Note aspect-ratio is still expecimental and broser support isnt the best rn
+    but its fine for a small assignment like this
+  */
+  aspect-ratio: 1 / 1;
+  background-color: green;
+  border: 1px solid black;
+  transition: all 1s ease;
+}
+
+.box:hover {
+  transform: scale(1.5);
+  background-color: rgb(0, 42, 84);
+}
+
+.hotdog:hover {
+  transform: rotate(360deg);
+}

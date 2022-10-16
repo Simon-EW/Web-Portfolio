@@ -4,22 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="/styles/project-style.css" />
+    <link rel="stylesheet" href="/styles/project.css" />
     <link rel="icon" href="/icon.png" type="image/png" />
-    <script src="/scripts/project-script.ts" defer type="module"></script>
+    <script src="/scripts/projects.ts" type="module"></script>
     <title>Simon's Portfolio</title>
   </head>
   <body>
     <header>
       <nav>
-        <input type="checkbox" name="" id="mobile-nav" />
+        <input type="checkbox" name="mobile-nav" id="mobile-nav" />
         <label for="mobile-nav" class="mobile-nav-toggle">
-          <div class="burger">
+          <span class="burger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-          </div>
+          </span>
         </label>
         <ul class="nav-list">
           <li class="nav-item"><a href="/">Home</a></li>
@@ -29,14 +28,14 @@
           <li class="nav-item"><a href="/pages/contact.html">Contact</a></li>
           <li class="github-link">
             <a href="https://github.com/Simon-EW">
-              <img src="/images/github.svg" />
+              <img src="/images/github.svg" alt="Github Logo" />
             </a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <h1 class="title">Here are some of my past projects</h1>
+      <h1 class="title">My Past Web Projects</h1>
       <div class="project-list"></div>
     </main>
   </body>

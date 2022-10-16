@@ -1,0 +1,12 @@
+.image-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.image-wrapper img {
+  height: 100%;
+}

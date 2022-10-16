@@ -4,7 +4,58 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
+    <link rel="stylesheet" href="/styles/contact.css" />
+    <link rel="icon" href="/icon.png" type="image/png" />
+    <title>Contact</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav>
+        <input type="checkbox" name="mobile-nav" id="mobile-nav" />
+        <label for="mobile-nav" class="mobile-nav-toggle">
+          <span class="burger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+        </label>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item">
+            <a href="/pages/projects.html">Projects</a>
+          </li>
+          <li class="nav-item"><a href="/pages/contact.html">Contact</a></li>
+          <li class="github-link">
+            <a href="https://github.com/Simon-EW">
+              <img src="/images/github.svg" alt="Github Logo" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1 class="title">Contact Me</h1>
+      <ul class="contact-info">
+        <li class="contact">
+          <img class="icon" src="/images/discord-icon.svg" alt="Discord Icon" />
+          Simon#0001
+        </li>
+        <li>
+          <a
+            href="mailto:simon.erikssonwestlund@elev.ga.ntig.se"
+            class="contact"
+          >
+            <img class="icon" src="/images/email-icon.svg" alt="Email Icon" />
+            Simon.erikssonwestlund@elev.ga.ntig.se
+          </a>
+        </li>
+        <li>
+          <a href="tel:46701234567" class="contact">
+            <img class="icon" src="/images/phone-icon.svg" alt="Phone Icon" />
+            +46 70 123 45 67
+          </a>
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>

@@ -1,3 +1,3 @@
 import addProjects from "./project-script";
 
-addProjects(true);
+addProjects(false);
