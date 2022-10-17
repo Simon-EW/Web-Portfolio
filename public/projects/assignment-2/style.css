@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    box-shadow: 0 0 10px 1px rgb(0, 0, 0);
+}
+
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    padding: 2rem 0; /* Stick navbar to top of page */
+}
+
+.nav-link {
+    background-color: rgb(99, 99, 99);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* box-shadow: 0 0 0.5rem 0.25rem rgb(0, 0, 0); */
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+}
+
+.content-wrapper {
+    padding-top: 1rem;
+    display: flex;
+}
+
+.content {
+    padding: 0 3rem;
+    text-align: center;
+}
+
+.body-text {
+    font-size: 1rem;
+    line-height: 1.3em;
+}
+
+.advert {
+    width: auto;
+    height: 40vh;
+    vertical-align: middle;
+}
+.about-body {
+    height: 100vh;
+    display: flex;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.about {
+    margin: 1rem 10rem;
+    flex: 1;
+    background-color: rgb(238, 238, 238);
+}
+
+.about > p {
+    margin: 0 1rem;
+}
+
+.about-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 1rem;
+}
+
+.monkey-wrapper {
+    margin: 1rem;
+}
+
+.monkey-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.monkey-wrapper img {
+    width: auto;
+    height: 300px;
+}

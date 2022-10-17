@@ -1,0 +1,77 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.monkey-image {
+    height: 10rem;
+    border-radius: 2.5rem;
+    margin: 3rem;
+    animation: monkey-spin infinite 2s linear;
+    box-shadow: 0 0 0.5rem 0.25rem rgb(0, 0, 0);
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 2rem;
+    padding: 0;
+    /* Stick navbar to top of page */
+    /* position: sticky;
+    top: 0; */
+}
+
+.nav-link {
+    background-color: rgb(99, 99, 99);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* box-shadow: 0 0 0.5rem 0.25rem rgb(0, 0, 0); */
+    margin-left: 2rem;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+}
+
+.nav-link:active {
+    transform: translateY(0.25rem);
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-arrow {
+    color:black;
+}
+
+.top-arrow:hover {
+    border-radius: 0.25rem;
+    border: 2px solid black;
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+@keyframes monkey-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
