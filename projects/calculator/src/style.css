@@ -1,7 +1,5 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 }
 
@@ -15,6 +13,7 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
+  background-color: #121212;
 }
 
 .calculator {
@@ -44,6 +43,8 @@ body {
   user-select: none;
   height: 2.25rem;
   font-size: 1rem;
+  background-color: #7b7b7b;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 #calc-buttons {
@@ -55,10 +56,13 @@ body {
 
 .currency-select > select {
   width: 100%;
+  background-color: #3b3b3b;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .submit-btn {
   margin-inline: auto;
+  background-color: #7b7b7b;
   width: 100%;
 }
 
