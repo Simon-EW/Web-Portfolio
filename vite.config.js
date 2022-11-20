@@ -8,6 +8,7 @@ export default defineConfig({
         main: "index.html",
         contact: "pages/contact.html",
         projects: "pages/projects.html",
+        calculator: "projects/calculator/index.html",
       },
     },
   },

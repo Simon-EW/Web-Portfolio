@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script type="module" src="./src/main.ts"></script>
+  </head>
+  <body>
+    <div class="calculator">
+      <div id="equation"></div>
+      <div id="calc-buttons"></div>
+      <form action="" class="currency-select">
+        <label for="currency-from-selector">Convert from</label>
+        <select id="currency-from-selector" name="currency-from-selector">
+          <option value="SEK" selected="selected">SEK - Swedish Krona</option>
+        </select>
+        <label for="currency-to-selector">To</label>
+        <select id="currency-to-selector" name="currency-to-selector">
+          <option value="USD" selected="selected">USD - United States Dollar</option>
+        </select>
+        <input type="submit" value="Convert" class="submit-btn" />
+      </form>
+    </div>
+  </body>
+</html>
