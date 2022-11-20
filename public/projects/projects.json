@@ -5,7 +5,7 @@
             "title": "Calculator",
             "description": "A simple calculator with currency conversion",
             "entry": "calculator/index.html",
-            "github": "Placeholder",
+            "github": "https://github.com/Simon-EW/Web-Portfolio/tree/dev/projects/calculator",
             "tags": [
                 "Javascript"
             ]

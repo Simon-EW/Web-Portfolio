@@ -28,7 +28,8 @@ body {
   border-radius: 0.5rem;
 }
 
-.equation-parent {
+#equation {
+  white-space: nowrap;
   overflow-x: auto;
   width: 100%;
   height: 3rem;
@@ -36,10 +37,6 @@ body {
   display: flex;
   border-radius: 0.5rem;
   padding: 0.5rem;
-}
-
-#equation {
-  white-space: nowrap;
 }
 
 .calc-btn {
@@ -51,6 +48,32 @@ body {
 
 #calc-buttons {
   display: grid;
+  /* Creates grid with 5 columns */
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 0.25rem;
+}
+
+.currency-select > select {
+  width: 100%;
+}
+
+.submit-btn {
+  margin-inline: auto;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .calculator {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: #242424;
+  }
+  .calculator {
+    width: 100%;
+    padding: 1rem;
+  }
 }

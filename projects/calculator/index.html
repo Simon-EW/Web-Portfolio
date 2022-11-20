@@ -3,25 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Calculator</title>
     <script type="module" src="./src/main.ts"></script>
   </head>
   <body>
     <div class="calculator">
-      <div class="equation-parent">
-        <div id="equation"></div>
-        <div id="dummy-item"></div>
-      </div>
+      <div id="equation"></div>
       <div id="calc-buttons"></div>
-      <form action="">
-        <label for="currency-selector">Select currency</label>
-        <select id="currency-selector" name="currency">
-          <option value="volvo">Volvo XC90</option>
-          <option value="saab">Saab 95</option>
-          <option value="mercedes">Mercedes SLK</option>
-          <option value="audi">Audi TT</option>
+      <form action="" class="currency-select">
+        <label for="currency-from-selector">Convert from</label>
+        <select id="currency-from-selector" name="currency-from-selector">
+          <option value="SEK" selected="selected">SEK - Swedish Krona</option>
         </select>
-        <input type="submit" value="Submit" />
+        <label for="currency-to-selector">To</label>
+        <select id="currency-to-selector" name="currency-to-selector">
+          <option value="USD" selected="selected">USD - United States Dollar</option>
+        </select>
+        <input type="submit" value="Convert" class="submit-btn" />
       </form>
     </div>
   </body>
