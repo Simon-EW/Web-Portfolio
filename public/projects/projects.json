@@ -1,6 +1,16 @@
 {
     "projects": [
         {
+            "id": "calculator",
+            "title": "Calculator",
+            "description": "A simple calculator with currency conversion",
+            "entry": "calculator/index.html",
+            "github": "Placeholder",
+            "tags": [
+                "Javascript"
+            ]
+        },
+        {
             "id": "first-project",
             "title": "My first web project",
             "description": "This was my very first (completed) web project and admittedly it's not all that exiting",
