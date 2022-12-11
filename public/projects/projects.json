@@ -11,6 +11,16 @@
             ]
         },
         {
+            "id": "history",
+            "title": "Htmls History",
+            "description": "A simple history of html",
+            "entry": "history/index.html",
+            "github": "https://github.com/Simon-EW/Web-Portfolio/tree/dev/projects/history",
+            "tags": [
+                "HTML"
+            ]
+        },
+        {
             "id": "first-project",
             "title": "My first web project",
             "description": "This was my very first (completed) web project and admittedly it's not all that exiting",
@@ -66,7 +76,7 @@
         }
     ],
     "featured": [
-        "first-project",
+        "calculator",
         "fifth-assignment"
     ]
 }
