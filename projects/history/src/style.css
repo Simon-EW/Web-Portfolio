@@ -60,18 +60,42 @@ html {
   font-weight: 500;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 1px 5px black;
 }
 
-/* .nav-item a:hover::after {
+.nav-item a::before,
+.nav-item a::after {
+  transition: opacity 0.2s ease-in-out;
+  top: 0;
+  left: 0;
+}
+
+.nav-item a::before {
+  border-radius: 1rem;
   content: '';
   position: absolute;
-  display: block;
   width: 100%;
-  height: 2px;
-  background-color: #000;
-  margin-top: 10px;
-} */
+  height: 100%;
+  box-shadow: 0 1px 5px #000;
+  opacity: 1;
+}
+
+.nav-item a:hover::before {
+  opacity: 0;
+}
+
+.nav-item a::after {
+  border-radius: 1rem;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 1px 5px #000 inset;
+  opacity: 0;
+}
+
+.nav-item a:hover::after {
+  opacity: 1;
+}
 
 .history-section {
   padding: 1rem 0;
@@ -90,6 +114,10 @@ html {
 
 .history-section img {
   width: 90%;
+}
+
+.history-section img:hover {
+  translate: transform();
 }
 
 .section-img-wrapper > img {
@@ -134,6 +162,28 @@ html {
   display: none;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  background-color: #262626;
+  border-radius: 0.5rem;
+}
+
 @media screen and (max-width: 1024px) {
   .main-wrapper {
     margin: 0 5%;
@@ -152,14 +202,18 @@ html {
     grid-row: span 1;
   }
 
+  .main-nav {
+    min-height: 3rem;
+  }
+
   .mobile-nav-toggle {
     display: flex;
-    position: static;
+    position: fixed;
     cursor: pointer;
     align-items: center;
     width: 2rem;
-    height: 2rem;
-    top: 1.1rem;
+    height: 1.5rem;
+    top: 1rem;
     right: 1rem;
     z-index: 10;
   }
@@ -171,11 +225,15 @@ html {
     position: absolute;
     flex-direction: column;
     align-items: end;
-    gap: 3rem;
-    left: 0;
+    gap: 1rem;
+    right: 0;
     top: 3rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     background-color: #262626;
+    padding: 1rem;
+  }
+
+  .nav-item {
     padding: 1rem;
   }
 
