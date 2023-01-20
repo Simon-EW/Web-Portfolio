@@ -9,12 +9,10 @@
     <title>Html History</title>
   </head>
   <body>
-    <header class="page-title">
-      <h1 class="title">Htmls Historia och Dokumentobjektmodellen</h1>
-    </header>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="main-nav">
       <input type="checkbox" name="mobile-nav" id="mobile-nav" />
-      <label for="mobile-nav" class="mobile-nav-toggle">
+      <label for="mobile-nav" class="mobile-nav-toggle" role="button">
         <span class="burger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -24,13 +22,21 @@
       <ul class="nav-list">
         <li class="nav-item"><a href="#htmls-development">HTMLs utveckling</a></li>
         <li class="nav-item"><a href="#transfer-xhtml">Övergången till XHTML</a></li>
-        <li class="nav-item"><a href="#start-of-html5">HTML5s ursprung</a></li>
         <li class="nav-item"><a href="#html5">HTML5</a></li>
         <li class="nav-item"><a href="#dom">DOM</a></li>
+        <li class="nav-item"><a href="#laws">Lagar</a></li>
       </ul>
     </nav>
-    <main class="main-wrapper">
-      <section class="history-section" id="htmls-development">
+    <header class="page-title">
+      <h1 class="title">Htmls Historia och DOM</h1>
+    </header>
+    <main class="main-wrapper" id="main-content">
+      <section
+        class="history-section"
+        id="htmls-development"
+        role="contentinfo"
+        aria-label="HTMLs evolution och utveckling"
+      >
         <header class="sub-title">
           <h2 class="sub-title-text">HTMLs evolution och utveckling</h2>
         </header>
@@ -47,7 +53,12 @@
           </p>
         </div>
       </section>
-      <section class="history-section" id="transfer-xhtml">
+      <section
+        class="history-section"
+        id="transfer-xhtml"
+        role="contentinfo"
+        aria-label="Utvecklingen av HTML och övergången till XHTML"
+      >
         <header class="sub-title">
           <h2 class="sub-title-text">Utvecklingen av HTML och övergången till XHTML</h2>
         </header>
@@ -83,9 +94,9 @@
           </p>
         </div>
       </section>
-      <section class="history-section" id="start-of-html5">
+      <section class="history-section" id="html5" role="contentinfo" aria-label="HTML5s ursprung och fortsättning">
         <header class="sub-title">
-          <h2 class="sub-title-text">Det förnyade intresset för att utveckla HTML: HTML5s ursprung</h2>
+          <h2 class="sub-title-text">HTML5s ursprung och fortsättning</h2>
         </header>
         <div class="text-wrapper">
           <p>
@@ -114,11 +125,6 @@
             betydligt fler detaljer än vad som tidigare ansetts vara normen.
           </p>
         </div>
-      </section>
-      <section class="history-section" id="html5">
-        <header class="sub-title">
-          <h2 class="sub-title-text">HTML5: Nästa kapitel i HTMLs historia</h2>
-        </header>
         <div class="text-wrapper">
           <p>
             2006 indikerade W3C ett intresse av att trots allt delta i utvecklingen av HTML5, och 2007 bildade W3C en
@@ -139,7 +145,7 @@
           <p>Under 2019 undertecknade WHATWG och W3C ett avtal om att samarbeta om en enda version av HTML framöver.</p>
         </div>
       </section>
-      <section class="history-section" id="dom">
+      <section class="history-section" id="dom" role="contentinfo" aria-label="Html Dokumentobjektmodell">
         <header class="sub-title">
           <h2 class="sub-title-text">Html DOM</h2>
         </header>
@@ -156,6 +162,50 @@
             DOM är ett programmeringsgränssnitt som används för att tillgå och manipulera HTML-dokument. Det låter oss
             använda JavaScript och andra programmeringsspråk för att hitta och ändra element i ett HTML-dokument, samt
             interagera med dem på olika sätt.
+          </p>
+        </div>
+      </section>
+      <section class="history-section" id="laws" role="contentinfo" aria-label="Lagar på webben">
+        <header class="sub-title">
+          <h2 class="sub-title-text">Lagar på webben</h2>
+        </header>
+        <div class="text-wrapper">
+          <p>
+            De grundläggande principerna kan sägas vara kärnan i dataskyddsförordningen. Principerna gäller för all
+            personuppgiftsbehandling och sätter de yttersta ramarna för vad som är en tillåten behandling. Det är därför
+            viktigt att ni förstår principerna och tillämpar dem i er verksamhet när ni behandlar personuppgifter. Ha
+            alltid principerna i bakhuvudet när ni arbetar med personuppgiftsbehandling.
+          </p>
+          <div class="grid-row-span-2">
+            <p>Principerna innebär bland annat att personuppgiftsansvariga</p>
+            <ul class="content-list">
+              <li>måste ha stöd i dataskyddsförordningen för att få behandla personuppgifter</li>
+              <li>bara får samla in personuppgifter för specifika, särskilt angivna och berättigade ändamål</li>
+              <li>inte ska behandla fler personuppgifter än vad som behövs för ändamålen</li>
+              <li>ska se till att personuppgifterna är riktiga</li>
+              <li>ska radera personuppgifterna när de inte längre behövs</li>
+              <li>
+                ska skydda personuppgifterna, till exempel så att inte obehöriga får tillgång till dem och så att de
+                inte förloras eller förstörs
+              </li>
+              <li>ska kunna visa att ni lever upp till dataskyddsförordningen och hur ni gör det.</li>
+            </ul>
+          </div>
+          <p>
+            Upphovsrätt eller auktorrätt (engelska: copyright, "kopieringsrätt") bygger på idén att den person som har
+            skapat ett verk av en viss verkshöjd också ska ha ensamrätt att bestämma hur detta verk får användas.
+            Upphovsrätten kan skyddas genom bestämmelser om straff för den som utan upphovsmannens medgivande nyttjar
+            verket. Lagstiftning eller praxis kan också medge skadestånd till upphovsmannen och förbud för annan att
+            nyttja verket.
+          </p>
+          <p>
+            Lagar kring tillgänglighet på webben syftar till att göra webbplatser och digitala tjänster tillgängliga för
+            alla, inklusive personer med funktionsnedsättningar. Det finns olika lagar och riktlinjer som reglerar
+            detta, såsom den amerikanska Americans with Disabilities Act (ADA) och det europeiska direktivet för
+            tillgänglighet för offentliga webbplatser och mobilappar. Dessa lagar kräver att webbplatser och digitala
+            tjänster ska vara tillgängliga för personer med synskador, hörselskador, motoriska funktionsnedsättningar
+            och andra typer av funktionsnedsättningar. Det kan innebära att webbplatser måste ha alternativa
+            textbeskrivningar för bilder, lättläst text och enkel navigation.
           </p>
         </div>
       </section>

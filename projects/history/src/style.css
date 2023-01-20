@@ -1,22 +1,42 @@
+:root {
+  --text-color: #dedede;
+  --secondary-color: #262626;
+  --background-color: #191919;
+  --primary-font: 'Roboto', sans-serif;
+  --shade-color: #000000;
+  --focus-color: #ff0000;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--primary-font);
+}
+
+:focus {
+  outline: none;
+  border: 1px solid var(--focus-color);
 }
 
 body {
-  background-color: #191919;
+  background-color: var(--background-color);
 }
 
 html {
-  scroll-padding: 4rem;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
 }
 
 .page-title,
 .main-nav {
-  background-color: #262626;
-  color: #dedede;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.page-title {
+  padding-top: 4.5rem;
+  padding-bottom: 1rem;
 }
 
 .title {
@@ -26,23 +46,36 @@ html {
   font-weight: 700;
 }
 
+.skip-link {
+  position: fixed;
+  left: 2rem;
+  top: 2rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  box-shadow: 0 1px 5px var(--shade-color);
+  transform: scale(0);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  transform: scale(1);
+}
+
 .main-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   padding: 0.75rem 0;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.padding {
+  padding: 6rem 0;
 }
-
-/* Path: projects\history\src\components\Header\style.css */
 
 .nav-list {
   display: flex;
-  /* background-color: aliceblue; */
   justify-content: space-around;
   align-items: center;
   padding: 20px 0;
@@ -56,10 +89,14 @@ html {
   position: relative;
   text-decoration: none;
   color: inherit;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   padding: 1rem 2rem;
   border-radius: 1rem;
+}
+
+.nav-item a:focus {
+  border: none;
 }
 
 .nav-item a::before,
@@ -75,11 +112,12 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  box-shadow: 0 1px 5px #000;
+  box-shadow: 0 1px 5px var(--shade-color);
   opacity: 1;
 }
 
-.nav-item a:hover::before {
+.nav-item a:hover::before,
+.nav-item a:focus::before {
   opacity: 0;
 }
 
@@ -89,48 +127,57 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  box-shadow: 0 1px 5px #000 inset;
+  box-shadow: 0 1px 5px var(--focus-color) inset;
   opacity: 0;
 }
 
-.nav-item a:hover::after {
+.nav-item a:hover::after,
+.nav-item a:focus::after {
   opacity: 1;
 }
 
 .history-section {
+  scroll-padding-block: 6rem;
   padding: 1rem 0;
   margin: 2rem 0;
-  box-shadow: 0px 5px 15px black;
+  box-shadow: 0px 5px 15px var(--shade-color);
 }
 
-.history-section p {
-  text-justify: inter-word;
+.history-section > * {
   text-align: justify;
   font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.5;
-  padding: 0 20px;
+  padding: 0 1.2rem;
 }
 
 .history-section img {
   width: 90%;
 }
 
-.history-section img:hover {
-  translate: transform();
-}
-
 .section-img-wrapper > img {
   padding: 1rem 0;
 }
 
+.content-list > li {
+  list-style-position: inside;
+  text-align: left;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
 .text-wrapper {
   display: grid;
-  align-items: center;
   justify-items: center;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   padding: 1rem;
+}
+
+.text-wrapper > img {
+  align-self: center;
 }
 
 .sub-title-text {
@@ -142,8 +189,7 @@ html {
 
 .main-wrapper {
   margin: 0 10%;
-  color: #dddddd;
-  /* background-color: rgb(238, 238, 238); */
+  color: var(--text-color);
 }
 
 .grid-col-span-2 {
@@ -168,7 +214,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgb(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,26 +226,19 @@ html {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
-  background-color: #262626;
+  background-color: var(--secondary-color);
   border-radius: 0.5rem;
 }
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+/* Responsivity & Compatibility */
 
 @media screen and (max-width: 1024px) {
   .main-wrapper {
     margin: 0 5%;
-  }
-
-  .text-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-col-span-2 {
-    grid-column: span 1;
-  }
-
-  .grid-row-span-2,
-  .grid-row-span-3 {
-    grid-row: span 1;
   }
 
   .main-nav {
@@ -221,7 +260,7 @@ html {
   .nav-list {
     transition: all ease 0.3s;
     transform: scale(0);
-    display: flex;
+    display: none;
     position: absolute;
     flex-direction: column;
     align-items: end;
@@ -229,12 +268,12 @@ html {
     right: 0;
     top: 3rem;
     border-radius: 1rem;
-    background-color: #262626;
+    background-color: var(--secondary-color);
     padding: 1rem;
   }
 
   .nav-item {
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   .burger {
@@ -272,6 +311,7 @@ html {
     the type .nav-list that are siblings of the element with the id #mobile-nav.
   */
   #mobile-nav:checked ~ .nav-list {
+    display: flex;
     transform: scale(1);
   }
 
@@ -299,5 +339,54 @@ html {
   #mobile-nav:checked ~ .mobile-nav-toggle .bar:nth-child(3) {
     top: -3px;
     transform: rotate(-45deg);
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .main-wrapper {
+    margin: 0 10%;
+  }
+
+  .text-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-col-span-2 {
+    grid-column: span 1;
+  }
+
+  .grid-row-span-2,
+  .grid-row-span-3 {
+    grid-row: span 1;
+  }
+
+  .history-section > * {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-item > a {
+    padding: 0.5rem 1rem;
+  }
+
+  .main-wrapper {
+    margin: 0 2%;
+  }
+
+  .page-title {
+    padding-top: 2rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .history-section > * {
+    padding: 0 0.25rem;
+  }
+
+  .content-list > li {
+    padding: 0 0.25rem;
   }
 }
