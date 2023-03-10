@@ -90,10 +90,9 @@ contactForm?.addEventListener('submit', async e => {
 
   const data = await res.json();
   const error: ZodError = data.error;
-  console.log(error.issues);
   const invalidField = error.issues[0].path[0];
   focusAndScrollField(invalidField.toString());
-  const issues = error.issues.map((issue: any) => issue.message);
+  const issues = error.issues.map(issue => issue.message);
 
   displayError(issues.join(', '));
 });
