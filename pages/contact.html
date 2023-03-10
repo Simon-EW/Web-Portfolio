@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/contact.css" />
     <link rel="icon" href="/icon.png" type="image/png" />
+    <script src="../scripts/contact.ts" defer></script>
     <title>Contact</title>
   </head>
   <body>
+    <div class="popup"></div>
     <header>
       <nav>
         <input type="checkbox" name="mobile-nav" id="mobile-nav" />
@@ -34,28 +36,42 @@
       </nav>
     </header>
     <main>
-      <h1 class="title">Contact Me</h1>
-      <ul class="contact-info">
-        <li class="contact">
-          <img class="icon" src="/images/discord-icon.svg" alt="Discord Icon" />
-          Simon#0001
-        </li>
-        <li>
-          <a
-            href="mailto:simon.erikssonwestlund@elev.ga.ntig.se"
-            class="contact"
-          >
-            <img class="icon" src="/images/email-icon.svg" alt="Email Icon" />
-            Simon.erikssonwestlund@elev.ga.ntig.se
-          </a>
-        </li>
-        <li>
-          <a href="tel:46701234567" class="contact">
-            <img class="icon" src="/images/phone-icon.svg" alt="Phone Icon" />
-            +46 70 123 45 67
-          </a>
-        </li>
-      </ul>
+      <section>
+        <h1 class="title">Contact Me</h1>
+        <ul class="contact-info">
+          <li class="contact">
+            <img class="icon" src="/images/discord-icon.svg" alt="Discord Icon" />
+            Simon#0001
+          </li>
+          <li>
+            <a href="mailto:simon.erikssonwestlund@elev.ga.ntig.se" class="contact">
+              <img class="icon" src="/images/email-icon.svg" alt="Email Icon" />
+              Simon.erikssonwestlund@elev.ga.ntig.se
+            </a>
+          </li>
+          <li>
+            <a href="tel:46701234567" class="contact">
+              <img class="icon" src="/images/phone-icon.svg" alt="Phone Icon" />
+              +46 70 123 45 67
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h1 class="title">Or send a message</h1>
+        <form class="contact-form" action="/api/send" method="POST">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label for="subject">Subject</label>
+          <input type="text" name="subject" id="subject" />
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="5"></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <div class="form-status"></div>
+      </section>
     </main>
   </body>
 </html>
