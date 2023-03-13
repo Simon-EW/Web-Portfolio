@@ -14,7 +14,6 @@ interface FormInfo {
 let popupTimeout: NodeJS.Timeout | null = null;
 
 const displayError = (message: string) => {
-  console.log(message);
   formStatus?.classList.add('form-error');
   formStatus?.classList.remove('form-success');
   formStatus!.textContent = message;

@@ -26,7 +26,16 @@ export default async (request: VercelRequest, response: VercelResponse) => {
     return;
   }
 
-  const input = FormFields.safeParse(JSON.parse(request.body));
+  let json: unknown;
+
+  try {
+    json = JSON.parse(request.body);
+  } catch (error) {
+    response.status(400).json({ success: false, error: 'Invalid JSON' });
+    return;
+  }
+
+  const input = FormFields.safeParse(json);
 
   if (!input.success) {
     response.status(400).json({ success: false, error: input.error });
@@ -35,51 +44,54 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 
   const { name, email, subject, message } = input.data;
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
 
-  const mail = new Email({
-    message: {
+    const mail = new Email({
+      message: {
+        from: `Simon <${process.env.EMAIL_USER}>`,
+      },
+      views: {
+        options: {
+          extension: 'ejs',
+        },
+      },
+      juice: true,
+      juiceResources: {
+        preserveImportant: true,
+        webResources: {
+          relativeTo: resolve('./api'),
+        },
+      },
+    });
+
+    const emailTemplate = await mail.render(resolve('./api/contact.ejs'), {
+      name,
+      email,
+      subject,
+      message,
+    });
+
+    const mailOptions = {
       from: `Simon <${process.env.EMAIL_USER}>`,
-    },
-    views: {
-      options: {
-        extension: 'ejs',
-      },
-    },
-    juice: true,
-    juiceResources: {
-      preserveImportant: true,
-      webResources: {
-        relativeTo: resolve('./api'),
-      },
-    },
-  });
+      to: 'simon.alt.form@gmail.com',
+      subject: `Form submission: ${subject}`,
+      html: emailTemplate,
+    };
 
-  const emailTemplate = await mail.render(resolve('./api/contact.ejs'), {
-    name,
-    email,
-    subject,
-    message,
-  });
+    const info = await transporter.sendMail(mailOptions);
 
-  const mailOptions = {
-    from: `Simon <${process.env.EMAIL_USER}>`,
-    to: 'simon.alt.form@gmail.com',
-    subject: `Form submission: ${subject}`,
-    html: emailTemplate,
-  };
-
-  const info = await transporter.sendMail(mailOptions);
-
-  if (!info || !info.accepted || info.accepted.length === 0) {
+    if (!info || !info.accepted || info.accepted.length === 0) {
+      throw new Error('Email not sent');
+    }
+  } catch (error) {
     response.status(500).json({ success: false });
-
     return;
   }
 
