@@ -53,6 +53,10 @@ export default async (request: VercelRequest, response: VercelResponse) => {
       },
     });
 
+    // const mailDir = process.env.NODE_ENV === 'production' ? resolve('./mail/') : resolve('./public/mail/');
+    const mailDir = resolve('./assets/mail/');
+    console.log(mailDir);
+
     const mail = new Email({
       message: {
         from: `Simon <${process.env.EMAIL_USER}>`,
@@ -66,12 +70,12 @@ export default async (request: VercelRequest, response: VercelResponse) => {
       juiceResources: {
         preserveImportant: true,
         webResources: {
-          relativeTo: resolve('./api'),
+          relativeTo: mailDir,
         },
       },
     });
 
-    const emailTemplate = await mail.render(resolve('./api/contact.ejs'), {
+    const emailTemplate = await mail.render(resolve(mailDir, 'contact.ejs'), {
       name,
       email,
       subject,

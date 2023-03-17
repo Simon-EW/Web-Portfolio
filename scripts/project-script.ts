@@ -17,7 +17,7 @@ interface projectsJson {
 }
 
 // Global variable which holds the div where all projects will be added
-const projectList = document.querySelector(".project-list");
+const projectList = document.querySelector('.project-list');
 
 /**
  *
@@ -27,12 +27,7 @@ const projectList = document.querySelector(".project-list");
  * @returns The newly created element
  * @description Creates a new element and appends it to the parent element
  */
-const appendElement = (
-  tag: string,
-  parent: Element,
-  text: string,
-  ...classNames: string[]
-) => {
+const appendElement = (tag: string, parent: Element, text: string, ...classNames: string[]) => {
   const element = document.createElement(tag);
   parent.appendChild(element);
   // Sets the text of the element if text is provided
@@ -52,27 +47,25 @@ const addProjectToDOM = (project: jsonProject) => {
   // Object destructuring to get all the properties of the project
   const { title, description, entry, tags, github } = project;
   // Check if projectList exists otherwise return
-  if (!projectList) return console.log("No div with class project-list found");
+  if (!projectList) return console.log('No div with class project-list found');
 
-  const parentNode = appendElement("a", projectList, "", "project");
+  const parentNode = appendElement('a', projectList, '', 'project');
 
   // Add the href attribute to the project element which links to
   // the project entry point meaning the entire "card" is clickable
-  parentNode.setAttribute("href", `/projects/${entry}`);
+  parentNode.setAttribute('href', `/projects/${entry}`);
 
-  appendElement("h2", parentNode, title, "project-title");
+  appendElement('h2', parentNode, title, 'project-title');
 
   // Create a div to hold project tags and then loop through the tags
   // and add them to the container
-  const tagContainer = appendElement("div", parentNode, "", "tag-container");
-  tags.forEach((tag) =>
-    appendElement("span", tagContainer, tag, "project-tag")
-  );
-  const githubLink = appendElement("a", parentNode, "", "project-link");
-  githubLink.setAttribute("href", github);
-  const githubLogo = appendElement("img", githubLink, "", "project-github");
-  githubLogo.setAttribute("src", "/images/project-github.svg");
-  appendElement("p", parentNode, description, "project-description");
+  const tagContainer = appendElement('div', parentNode, '', 'tag-container');
+  tags.forEach(tag => appendElement('span', tagContainer, tag, 'project-tag'));
+  const githubLink = appendElement('a', parentNode, '', 'project-link');
+  githubLink.setAttribute('href', github);
+  const githubLogo = appendElement('img', githubLink, '', 'project-github');
+  githubLogo.setAttribute('src', '/images/project-github.svg');
+  appendElement('p', parentNode, description, 'project-description');
 
   /* 
     The above code creates a html structure like this:
@@ -86,21 +79,17 @@ const addProjectToDOM = (project: jsonProject) => {
 };
 
 const addProjects = async (featuredOnly: boolean) => {
-  const projectJson: projectsJson = await fetch("/projects/projects.json").then(
-    (res) => res.json()
-  );
+  const projectJson: projectsJson = await fetch('/projects/projects.json').then(res => res.json());
 
   let projects: jsonProject[];
 
   if (featuredOnly) {
-    projects = projectJson.projects.filter((project: jsonProject) =>
-      projectJson.featured.includes(project.id)
-    );
+    projects = projectJson.projects.filter((project: jsonProject) => projectJson.featured.includes(project.id));
   } else {
     projects = projectJson.projects;
   }
 
-  projects.forEach((project) => addProjectToDOM(project));
+  projects.forEach(project => addProjectToDOM(project));
 };
 
 export default addProjects;

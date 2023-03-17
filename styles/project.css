@@ -17,6 +17,36 @@
   padding-bottom: 3rem;
 }
 
+.project {
+  transition: all 0.2s ease-in-out;
+}
+
+/* 
+  Using has selector which is not that widely supported
+  so we need to add a fallback for browsers that don't support it
+  which is down below in a @supports block
+*/
+.project-list:has(.project:hover) > .project {
+  transform: scale(0.95);
+  opacity: 0.75;
+}
+
+/*
+  Needs to use !important since the selector above it is more specific
+*/
+.project:hover {
+  transform: scale(1.15) !important;
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+@supports not selector(:has) {
+  .project-list:hover > .project {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+}
+
 /* Media query to make sure we only get a maximum of 3 projects per row */
 @media screen and (min-width: 1200px) {
   .project-list {
