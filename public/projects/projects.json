@@ -21,6 +21,16 @@
             ]
         },
         {
+            "id": "autogrid",
+            "title": "Auto Grid",
+            "description": "A simple grid of images that automatically fits to the screen",
+            "entry": "autogrid/index.html",
+            "github": "",
+            "tags": [
+                "CSS"
+            ]
+        },
+        {
             "id": "first-project",
             "title": "My first web project",
             "description": "This was my very first (completed) web project and admittedly it's not all that exiting",
