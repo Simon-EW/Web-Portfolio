@@ -10,6 +10,11 @@
 @import "./global.css";
 @import "./project-list-style.css";
 
+/* Z index to ensure the nav stays infront of any transforming projects */
+header {
+  z-index: 10;
+}
+
 .title {
   font-size: 3rem;
   font-weight: 700;
@@ -18,7 +23,13 @@
 }
 
 .project {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.project-description {
+  transition: height 0.25s ease-in-out;
+  height: 2.5rem;
+  overflow: hidden;
 }
 
 /* 
@@ -26,7 +37,7 @@
   so we need to add a fallback for browsers that don't support it
   which is down below in a @supports block
 */
-.project-list:has(.project:hover) > .project {
+.project-list:has(.project:is(:hover, :focus)) > .project {
   transform: scale(0.95);
   opacity: 0.75;
 }
@@ -34,13 +45,16 @@
 /*
   Needs to use !important since the selector above it is more specific
 */
-.project:hover {
+.project:is(:hover, :focus) {
   transform: scale(1.15) !important;
   opacity: 1 !important;
   z-index: 1;
 }
 
-@supports not selector(:has) {
+/* 
+  Fallback for browsers that don't support :has() selector
+*/
+@supports not selector(.project:is(:hover, :focus)) {
   .project-list:hover > .project {
     transform: scale(0.95);
     opacity: 0.75;
