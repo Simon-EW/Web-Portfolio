@@ -65,7 +65,7 @@ const addProjectToDOM = (project: jsonProject) => {
   const githubLink = appendElement('a', parentNode, '', 'project-link');
   githubLink.setAttribute('href', github);
   const githubLogo = appendElement('img', githubLink, '', 'project-icon');
-  githubLogo.setAttribute('src', `/projects/${root}/icon.png`);
+  githubLogo.setAttribute('src', `/icons/${root}.png`);
   appendElement('p', parentNode, description, 'project-description');
 
   /* 
