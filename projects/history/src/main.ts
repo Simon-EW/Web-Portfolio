@@ -37,7 +37,7 @@ const links = document.querySelectorAll<HTMLAnchorElement>('.nav-item > a');
 // Close mobile nav when a link is clicked
 links.forEach(link => {
   link.addEventListener('click', () => {
-    if (navCheckbox?.checked) navCheckbox.checked = false;
+    navCheckbox!.checked = false;
   });
 });
 

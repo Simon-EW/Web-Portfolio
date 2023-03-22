@@ -61,9 +61,24 @@ header {
   }
 }
 
+/* Checks if user is using touch and makes animation stop */
+@media (hover: none) {
+  .project-description {
+    height: auto;
+  }
+}
+
 /* Media query to make sure we only get a maximum of 3 projects per row */
 @media screen and (min-width: 1200px) {
   .project-list {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Media query for phones so that the icon goes above the description */
+@media screen and (max-width: 600px) {
+  .project-link {
+    float: none;
+    display: block;
   }
 }

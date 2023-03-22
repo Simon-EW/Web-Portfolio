@@ -5,6 +5,7 @@ interface jsonProject {
   id: string;
   title: string;
   description: string;
+  root: string;
   entry: string;
   github: string;
   tags: string[];
@@ -45,7 +46,7 @@ const appendElement = (tag: string, parent: Element, text: string, ...classNames
  */
 const addProjectToDOM = (project: jsonProject) => {
   // Object destructuring to get all the properties of the project
-  const { title, description, entry, tags, github } = project;
+  const { title, description, root, entry, tags, github } = project;
   // Check if projectList exists otherwise return
   if (!projectList) return console.log('No div with class project-list found');
 
@@ -53,7 +54,7 @@ const addProjectToDOM = (project: jsonProject) => {
 
   // Add the href attribute to the project element which links to
   // the project entry point meaning the entire "card" is clickable
-  parentNode.setAttribute('href', `/projects/${entry}`);
+  parentNode.setAttribute('href', `/projects/${root}/${entry}`);
 
   appendElement('h2', parentNode, title, 'project-title');
 
@@ -63,8 +64,8 @@ const addProjectToDOM = (project: jsonProject) => {
   tags.forEach(tag => appendElement('span', tagContainer, tag, 'project-tag'));
   const githubLink = appendElement('a', parentNode, '', 'project-link');
   githubLink.setAttribute('href', github);
-  const githubLogo = appendElement('img', githubLink, '', 'project-github');
-  githubLogo.setAttribute('src', '/images/project-github.svg');
+  const githubLogo = appendElement('img', githubLink, '', 'project-icon');
+  githubLogo.setAttribute('src', `/projects/${root}/icon.png`);
   appendElement('p', parentNode, description, 'project-description');
 
   /* 
@@ -74,6 +75,7 @@ const addProjectToDOM = (project: jsonProject) => {
       <span class="project-tag">${tag}</span>
       <span class="project-tag">${tag}</span>
     </div>
+
     <p class="project-description">${description}</p>
   */
 };
