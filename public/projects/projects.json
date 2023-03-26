@@ -4,7 +4,8 @@
             "id": "calculator",
             "title": "Calculator",
             "description": "A simple calculator with currency conversion",
-            "entry": "calculator/index.html",
+            "root": "calculator",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/Web-Portfolio/tree/dev/projects/calculator",
             "tags": [
                 "Javascript"
@@ -14,7 +15,8 @@
             "id": "history",
             "title": "Htmls History",
             "description": "A simple history of html",
-            "entry": "history/index.html",
+            "root": "history",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/Web-Portfolio/tree/dev/projects/history",
             "tags": [
                 "HTML"
@@ -24,8 +26,9 @@
             "id": "autogrid",
             "title": "Auto Grid",
             "description": "A simple grid of images that automatically fits to the screen",
-            "entry": "autogrid/index.html",
-            "github": "",
+            "root": "autogrid",
+            "entry": "index.html",
+            "github": "https://github.com/Simon-EW/Web-Portfolio/tree/dev/projects/autogrid",
             "tags": [
                 "CSS"
             ]
@@ -34,7 +37,8 @@
             "id": "first-project",
             "title": "My first web project",
             "description": "This was my very first (completed) web project and admittedly it's not all that exiting",
-            "entry": "assignment-1/index.html",
+            "root": "assignment-1",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/First-Web-Assignment",
             "tags": [
                 "Html",
@@ -45,7 +49,8 @@
             "id": "second-assignment",
             "title": "My second web assignment",
             "description": "This assignment has a bit of everything, monkeys, shitty ads and a beautiful about page",
-            "entry": "assignment-2/index.html",
+            "root": "assignment-2",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/Web-Assignment-2",
             "tags": [
                 "Html",
@@ -56,7 +61,8 @@
             "id": "third-assignment",
             "title": "A weird dictionary with only a few words",
             "description": "This webpage was made to test my knowledge in positioning and it uses sticky to keep the letter you are viewing in view",
-            "entry": "assignment-3/index.html",
+            "root": "assignment-3",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/Web-Assignment-3",
             "tags": [
                 "Css"
@@ -66,7 +72,8 @@
             "id": "fourth-assignment",
             "title": "A website with some animations and a youtube video",
             "description": "This website was made to test animations and get to know them better and also include a youtube video of Joey Chestnut eating hotdogs, very fast I might add",
-            "entry": "assignment-4/index.html",
+            "root": "assignment-4",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/Web-Portfolio/tree/main/public/projects/assignment-4",
             "tags": [
                 "Html",
@@ -77,7 +84,8 @@
             "id": "fifth-assignment",
             "title": "A bunch of images of Joey Chestnut",
             "description": "This website has a bunch of images of Joey Chestnut, the hotdog eating champion in a grid. All the images are inserted using javascript",
-            "entry": "assignment-5/index.html",
+            "root": "assignment-5",
+            "entry": "index.html",
             "github": "https://github.com/Simon-EW/Web-Portfolio/tree/main/public/projects/assignment-5",
             "tags": [
                 "Css",
