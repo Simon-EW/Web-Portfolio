@@ -1,0 +1,20 @@
+module.exports = {
+  env: {
+    node: true,
+  },
+  parser: "@typescript-eslint/parser",
+  extends: [
+    "eslint:recommended",
+    "turbo",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
+  plugins: ["@typescript-eslint"],
+  parserOptions: {
+    sourceType: "module",
+    ecmaVersion: 2022,
+  },
+  rules: {
+    "@typescript-eslint/no-non-null-assertion": "off",
+  },
+};
