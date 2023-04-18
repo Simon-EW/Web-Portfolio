@@ -1,0 +1,11 @@
+{
+  "extends": ["//"],
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["lint", "^build"],
+      "outputs": ["../portfolio/external/git-page/**"],
+      "inputs": ["**/*,!node_modules/**"]
+    }
+  }
+}

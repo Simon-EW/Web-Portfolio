@@ -3,7 +3,10 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["vite#build"]
+      "dependsOn": ["lint", "^build", "git-page#build"],
+      "outputs": ["dist/**"],
+      "inputs": ["**/*,!dist/**,!node_modules/**", "../git-page/**,!../git-page/node_modules/**"],
+      "env": ["EMAIL_USER", "EMAIL_PASSWORD"]
     }
   }
 }

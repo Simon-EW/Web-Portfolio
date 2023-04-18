@@ -15,7 +15,6 @@
     "generate": "pnpm --dir packages/generator plop"
   },
   "devDependencies": {
-    "eslint-config-vite": "workspace:*",
     "prettier": "latest",
     "turbo": "latest",
     "vercel": "^28.18.2"
