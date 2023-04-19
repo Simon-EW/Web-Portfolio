@@ -1,0 +1,26 @@
+---
+import gitLogo from "@/assets/git-logo.svg";
+
+const navLinks = [
+  { href: "https://www.google.com", text: "Google" },
+  { href: "https://www.yahoo.com", text: "Yahoo" },
+  { href: "https://www.bing.com", text: "Bing" },
+  // { test: "test" },
+  // { test: "test2" },
+];
+// const test = [{ test: "test" }, { test: "test2" }];
+---
+
+<nav>
+  <a href="#">
+    <img src={gitLogo} alt="" />
+    Git
+  </a>
+  <div class="nav-links">
+    {
+      navLinks.map((item) => {
+        return <a href={item.href}>{item.text}</a>;
+      })
+    }
+  </div>
+</nav>
