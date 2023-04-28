@@ -1,5 +1,6 @@
 ---
 import Navbar from "@/components/Navbar.astro";
+import "@fontsource/inter";
 
 export interface Props {
   title: string;
@@ -37,9 +38,17 @@ const { title } = Astro.props;
       #da62c4 30%,
       white 60%
     );
+    --primaryColor: rgb(240, 81, 51);
+    --secondaryColor: rgb(242, 107, 81);
+    --darkBg: rgb(31, 32, 35);
+    --darkBgLighter: rgb(38, 39, 43);
+    --darkBgHover: rgb(48, 49, 54);
+    --grayBorder: rgb(255, 255, 255, 0.1);
+    --grayText: rgb(174, 178, 183);
+    --darkBgTransparent: rgb(31, 32, 35, 0.7);
   }
   html {
-    font-family: system-ui, sans-serif;
+    font-family: Inter;
     background-color: #1f2023;
   }
   body {
@@ -49,5 +58,16 @@ const { title } = Astro.props;
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>

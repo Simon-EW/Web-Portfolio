@@ -1,26 +1,117 @@
 ---
-import gitLogo from "@/assets/git-logo.svg";
+// import downloadIcon from "@/assets/download-icon.svg";
+
+import DownloadIcon from "@/assets/DownloadIcon.astro";
+import GitIcon from "@/assets/GitIcon.astro";
 
 const navLinks = [
-  { href: "https://www.google.com", text: "Google" },
-  { href: "https://www.yahoo.com", text: "Yahoo" },
-  { href: "https://www.bing.com", text: "Bing" },
-  // { test: "test" },
-  // { test: "test2" },
+  { href: "https://www.google.com", text: "About" },
+  { href: "https://www.bing.com", text: "Download" },
+  { href: "https://www.yahoo.com", text: "Docs" },
+  { href: "https://www.duckduckgo.com", text: "Community" },
 ];
-// const test = [{ test: "test" }, { test: "test2" }];
 ---
 
 <nav>
-  <a href="#">
-    <img src={gitLogo} alt="" />
+  <a href="#" class="logo-btn">
+    <GitIcon class="logo-icon" ariaHidden="true" />
     Git
   </a>
   <div class="nav-links">
     {
-      navLinks.map((item) => {
-        return <a href={item.href}>{item.text}</a>;
-      })
+      navLinks.map((item) => (
+        <a class="nav-link" aria-label={item.text} href={item.href}>
+          {item.text}
+        </a>
+      ))
     }
   </div>
+  <a href="#" class="download-btn">
+    <DownloadIcon class="download-icon" ariaHidden="true" />
+    Download
+  </a>
 </nav>
+
+<style>
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: var(--darkBg);
+    color: #fff;
+  }
+  /* Padding to make box that is clickable bigger
+   and margin to get some space between the buttons */
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    padding: 0.5rem;
+    margin-inline: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* The little line on hover */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primaryColor);
+    transform: scaleX(0);
+    /* transform-origin: left; */
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .nav-link:hover {
+    transform: scale(1.1);
+  }
+
+  .download-btn {
+    background-color: var(--darkBgLighter);
+    color: white;
+    border: 1px solid var(--grayBorder);
+    font-size: 0.875rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-btn {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-icon {
+    display: ;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.75rem;
+    fill: var(--primaryColor);
+  }
+
+  .download-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.75rem;
+    fill: var(--grayText);
+  }
+
+  /* @media (min-width: 768px) {
+    nav {
+      background-color: var(--darkBgTransparent);
+    }
+  } */
+</style>
